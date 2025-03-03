@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: d2h
+  name: d2h-deploy
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: d2h
+  template:
+    metadata:
+      labels:
+        app: d2h
+    spec:
+      containers:
+      - name: d2h-cont
+        image: vinay1244/d2h:latest
+        ports:
+          - containerPort: 80 

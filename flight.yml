@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: flight
+  name: deploy-flight
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: flight
+  template:
+    metadata:
+      labels:
+        app: flight
+    spec:
+      containers:
+      - name: cont-flight
+        image: vinay1244/flight:latest
+        ports:
+        - containerPort: 80

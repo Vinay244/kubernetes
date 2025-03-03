@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: recharge
+  name: recharge-deploy
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: recharge
+  template:
+    metadata:
+      labels:
+        app: recharge
+    spec:
+      containers:
+      - name: recharge-cont
+        image: vinay1244/recharge:latest
+        ports:
+          - containerPort: 80 

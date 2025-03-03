@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: movies
+  name: deploy-movies
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: movies
+  template:
+    metadata:
+      labels:
+        app: movies
+    spec:
+      containers:
+      - name: cont-movies
+        image: vinay1244/movies:latest
+        ports:
+          - containerPort: 80

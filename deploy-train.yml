@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: train
+  name: deploy-train
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: train
+  template:
+    metadata:
+      labels:
+        app: train
+    spec:
+      containers:
+      - name: train-cont
+        image: vinay1244/train:latest
+        ports:
+        - containerPort: 80
